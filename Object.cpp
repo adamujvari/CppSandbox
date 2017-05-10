@@ -22,9 +22,7 @@ void* Object::addNewElement(char *name, int time) {
     new_element->next_ = last_added;
     last_added = new_element;
     pthread_mutex_unlock(&element_lock_);
-
 }
-
 
 void* Object::printStatus() {
     Element* element = last_added;
@@ -41,7 +39,6 @@ void* Object::printStatus() {
 
         printf("%10s  %2i:%2i  %s", element->name_, min, sec, status);
     }
-
 }
 
 Object::~Object() {

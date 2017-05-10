@@ -14,6 +14,7 @@ public:
     InputHandler(pthread_t* thr);
     void* readInput(void*);
     static void wrongUsage();
+    static void printHelp();
 };
 
 

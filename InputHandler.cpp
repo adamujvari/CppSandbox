@@ -8,9 +8,7 @@
 using namespace std;
 
 InputHandler::InputHandler(pthread_t* thr) {
-
-    pthread_create(thr, NULL, &InputHandler::readInput, thr);
-
+    //pthread_create(thr, NULL, &readInput, thr);
 }
 
 void* InputHandler::readInput(void *) {
@@ -46,7 +44,7 @@ void* InputHandler::readInput(void *) {
             pthread_exit(NULL);
 
         } else if (!strcmp(tok1, "help")) {
-            puts("help");
+            printHelp();
 
         } else {
             wrongUsage();
@@ -55,5 +53,15 @@ void* InputHandler::readInput(void *) {
 }
 
 void InputHandler::wrongUsage() {
-    puts("Wrong usage. Type 'help' for list of commands.");
+    printf("Wrong usage. Type 'help' for list of commands.\n");
+}
+
+void InputHandler::printHelp() {
+    printf("> <command> <*attr> <*attr> | *optional, required only with 'add'.\n");
+    printf("> possibities:              |\n");
+    printf(">  add <name> <time>        | adds a new element\n");
+    printf(">                           | name: max length of 10, time: 'mm:ss'\n");
+    printf(">  status                   | lists all elements until escaped.\n");
+    printf(">  help                     | prints this box.\n");
+    printf(">  quit                     | terminates all background processes and quits.\n");
 }
