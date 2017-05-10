@@ -5,7 +5,7 @@
 #ifndef CPPSANDBOX_OBJECT_H
 #define CPPSANDBOX_OBJECT_H
 
-#include <sys/_pthread/_pthread_mutex_t.h>
+#include "pthread.h"
 
 class Object {
 

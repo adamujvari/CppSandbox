@@ -1,7 +1,13 @@
-cmake_minimum_required(VERSION 3.3)
+cmake_minimum_required(VERSION 3.6)
 project(CppSandbox)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread -std=c++11")
 
-set(SOURCE_FILES main.cpp Object.cpp Object.h InputHandler.cpp InputHandler.h)
+set(SOURCE_FILES
+    InputHandler.cpp
+    InputHandler.h
+    main.cpp
+    Object.cpp
+    Object.h)
+
 add_executable(CppSandbox ${SOURCE_FILES})
