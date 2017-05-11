@@ -7,11 +7,10 @@
 
 using namespace std;
 
-InputHandler::InputHandler(pthread_t* thr) {
-    //pthread_create(thr, NULL, &readInput, thr);
+InputHandler::InputHandler() {
 }
 
-void* InputHandler::readInput(void *) {
+void InputHandler::threadStartRoutine(void*) {
 
     char input[255];
     char* tok1;

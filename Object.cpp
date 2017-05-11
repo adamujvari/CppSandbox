@@ -28,7 +28,7 @@ void* Object::printStatus() {
     Element* element = last_added;
     printf("Obj. Name | -time | status\n");
 
-    // lock
+    pthread_mutex_lock(&element_lock_);
     while (element->next_ != NULL){
 
         int min = (int)floor(element->time_/60);
@@ -39,6 +39,8 @@ void* Object::printStatus() {
 
         printf("%10s  %2i:%2i  %s", element->name_, min, sec, status);
     }
+    pthread_mutex_unlock(&element_lock_);
+
 }
 
 Object::~Object() {

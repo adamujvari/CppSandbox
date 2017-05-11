@@ -9,14 +9,15 @@ int main(int argc, char* argv[]) {
 
     pthread_t input_handler_thr;
 
-    Object();
-    InputHandler InputHandler(&input_handler_thr);
+    Object object;
+    InputHandler handler;
+
+    int check = handler.startNewThread();
+    check ? printf("input thread not created.\n") : printf("input thread created\n");
 
     cout << "Init done.\n" << endl;
 
-    int check = pthread_join(input_handler_thr, NULL);
-    if (check != 0) return 1;
-    // cancel other threads
+    handler.waitForThreadToExit();
 
     return 0;
 }

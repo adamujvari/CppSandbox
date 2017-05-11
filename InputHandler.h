@@ -7,12 +7,13 @@
 
 #include <iostream>
 #include <pthread.h>
+#include "NewThread.h"
 
-class InputHandler {
+class InputHandler : public NewThread {
 
 public:
-    InputHandler(pthread_t* thr);
-    void* readInput(void*);
+    InputHandler();
+    virtual void threadStartRoutine(void*);
     static void wrongUsage();
     static void printHelp();
 };

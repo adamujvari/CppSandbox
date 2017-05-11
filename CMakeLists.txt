@@ -8,6 +8,6 @@ set(SOURCE_FILES
     InputHandler.h
     main.cpp
     Object.cpp
-    Object.h)
+    Object.h NewThread.cpp NewThread.h)
 
 add_executable(CppSandbox ${SOURCE_FILES})
